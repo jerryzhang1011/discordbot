@@ -112,9 +112,12 @@ async def daily_hello():
 async def on_ready():
     daily_hello.start()  # Start the scheduled task
     print(f'Logged in as {bot.user.name}!')
-print("Hello start")
-bot.run(token)
 
+try:
+    print("Starting bot...")
+    bot.run(os.getenv("DISCORD_TOKEN"))
+except Exception as e:
+    print(f"Error starting bot: {e}")
 
 
 
